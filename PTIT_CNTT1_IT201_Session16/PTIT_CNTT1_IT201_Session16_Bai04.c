@@ -36,12 +36,11 @@ void printQueue(Queue *q) {
         temp = temp->next;
     }
 }
-void peek(Queue *q) {
+int getFront(Queue *q) {
     if (isEmpty(q)) {
-         printf("Queue is empty");
-        return;
+        return -1;
     }
-    printf("\nphan tu o dau: %d", q->front->data);
+    return q->front->data;
 }
 void enQueue(Queue *q, int data) {
     Node *node = createNode(data);
@@ -58,6 +57,11 @@ int main(){
     enQueue(queue, 2);
     enQueue(queue, 3);
     printQueue(queue);
-    peek(queue);
+    int x = getFront(queue);
+    if( x == -1){
+     printf("Queue is empty");
+    }else{
+    printf("%d", x);
+    }
     return 0;
 }
